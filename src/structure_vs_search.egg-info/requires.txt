@@ -1,0 +1,9 @@
+numpy
+pandas
+PyYAML
+tqdm
+rank-bm25
+
+[dev]
+pytest
+ruff

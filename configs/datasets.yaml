@@ -1,0 +1,12 @@
+pilot_dataset: hotpotqa
+
+datasets:
+  hotpotqa:
+    status: pilot
+    split: null
+  musique:
+    status: candidate
+    split: null
+  2wikimultihopqa:
+    status: candidate
+    split: null

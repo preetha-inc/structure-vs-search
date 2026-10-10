@@ -1,0 +1,8 @@
+reader:
+  model_id: Qwen/Qwen2.5-7B-Instruct
+  tokenizer_model_id: Qwen/Qwen2.5-7B-Instruct
+  temperature: 0.0
+  max_new_tokens: 256
+
+dense_retrieval:
+  embedding_model_id: null

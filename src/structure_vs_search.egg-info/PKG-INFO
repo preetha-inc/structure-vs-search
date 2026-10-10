@@ -1,0 +1,65 @@
+Metadata-Version: 2.4
+Name: structure-vs-search
+Version: 0.1.0
+Summary: Controlled study of agentic retrieval and graph retrieval for multi-hop QA.
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: PyYAML
+Requires-Dist: tqdm
+Requires-Dist: rank-bm25
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+
+# Structure vs Search
+
+Research project comparing agent-controlled retrieval with graph-based
+retrieval for multi-hop question answering over document collections.
+
+## Research question
+
+When is graph structure worth its cost for multi-hop document QA, and can
+lexical connectivity predict when agent-controlled sparse retrieval is sufficient?
+
+## Planned experimental systems
+
+- A0: One-shot BM25 retrieval with a shared reader model.
+- A1: Iterative agentic BM25 retrieval.
+- A2: Document-aware sparse retrieval controls, if justified by the corpus audit.
+- D: Agentic dense retrieval.
+- S: HippoRAG 2 graph-based retrieval.
+- R: A router that starts with sparse retrieval and escalates to graph retrieval
+  when its test-time evidence signals justify doing so.
+
+These are planned experiments, not completed results.
+
+## Evaluation
+
+The project will track answer quality, evidence usage, model input/output tokens,
+model calls, latency, and graph construction cost. Graph build cost will be
+reported separately and included in amortized per-query cost estimates.
+
+## Experimental safeguards
+
+- Keep the reader model and answer-generation settings consistent across systems
+  wherever feasible.
+- Match evidence-token budgets and log actual inference cost separately.
+- Tune routing thresholds on development data, not the test set.
+- Do not use gold supporting passages or gold answers as test-time routing inputs.
+- Do not commit raw datasets, indexes, model weights, credentials, or run outputs.
+
+## Project status
+
+Initial repository scaffold. Dataset loading, retrieval implementations,
+and experiments are not yet complete.
+
+## Repository layout
+
+- `configs/`: dataset, model, budget, and experiment configuration.
+- `data/`: local datasets and generated data; large files are excluded from Git.
+- `src/structure_vs_search/`: research implementation.
+- `scripts/`: experiment entry points and corpus audit.
+- `tests/`: automated tests.
+- `docs/`: research and evaluation protocol.

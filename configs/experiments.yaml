@@ -1,0 +1,19 @@
+arms:
+  - id: A0
+    name: one_shot_bm25
+    status: planned
+  - id: A1
+    name: agentic_bm25
+    status: planned
+  - id: A2
+    name: document_aware_sparse_controls
+    status: pending_corpus_audit
+  - id: D
+    name: agentic_dense_retrieval
+    status: planned
+  - id: S
+    name: hipporag2
+    status: pilot_first
+  - id: R
+    name: bm25_to_graph_router
+    status: after_baselines
