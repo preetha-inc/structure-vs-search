@@ -1,9 +1,8 @@
-# Provisional values. Confirm after the initial pilot before full experiments.
 status: provisional
-tokenizer_model_id: Qwen/Qwen2.5-7B-Instruct
+shared_evidence_token_caps: [1000, 2000, 4000]
+primary_evidence_token_cap: 2000
 
-shared_evidence_token_cap: 4096
-sensitivity_caps: [2048, 8192]
+tokenizer_model_id: Qwen/Qwen2.5-7B-Instruct
 
 A0:
   bm25_top_k: 10
@@ -12,16 +11,8 @@ agentic_defaults:
   new_passages_per_step: 3
   max_search_steps: 8
 
-A2:
-  status: pending_corpus_audit
-
-hipporag:
-  select_ranked_passages_until_shared_cap: true
-  log_graph_construction_separately: true
-
 cost_logging:
   count_repeated_passage_exposure_per_llm_call: true
   log_unique_evidence_tokens_separately: true
   log_input_and_output_tokens: true
   log_model_calls_and_latency: true
-  report_graph_build_cost_and_amortized_cost: true
